@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+$color:red;
+body{
+  padding:0;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f6c76b;
+  font-family: 'Open Sans', sans-serif;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1440px;
+}
+
+.wrapper > *{
+  padding: 20px;
+  &:first-child{
+    padding-top: 0;
+  }
+}
+
+.page-main {
+  flex-grow: 1;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.radiobtns{
+  display: flex;
+  font-size: 16px;
+
+  &.isDark{
+    .button{
+      background: #c6c6c6;
+      color: white;
+      &.active, &:hover{
+        background: #ffd79b;
+        color: black;
+      }
+    }
+  }
+
+  &.isSmall{
+    font-size: 12px;
+  }
+  a{
+    display: flex;
+    justify-content: center;
+    padding: 0 4px;
+    align-items: center;
+    margin-right: 0.5em;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #ECECEC;
+    border: 1px solid #ECECEC;
+
+    .icon img{
+      height: 1rem;
+    }
+
+    .icon{
+      display: flex;
+    }
+
+
+    span:not(.icon){
+      padding-right: 4px;
+    }
+
+    &.active, &:hover{
+      background: #FFE9BA;
+    }
+
+    &:hover{
+      border: 1px solid #c4c4c4;
+    }
+  }
+}
+
+
+  .container{
+    padding: 1em;
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    background: white;
+    align-content: stretch;
+    &:first-child{
+      border-radius: 0 0 6px 6px;
+      border-top:none;
+    }
+    .title{
+      margin-top: 0;
+    }
+
+    &.main{
+      -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
+      -moz-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
+      box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
+    }
+  }
+
+  .controls{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .control{
+      padding: 0.25em 0.5em;
+      background: none;
+      border-radius: 8px;
+      margin-right: 1em;
+      cursor: pointer;
+      &:hover{
+        opacity: 0.8;
+        background: antiquewhite;
+      }
+
+      &.active{
+        background: white;
+      }
+    }
+  }
+
+  .page-footer{
+    display: flex;
+    justify-content: space-between;
+    &.title{
+
+    }
+  }
