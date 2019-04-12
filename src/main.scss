@@ -1,30 +1,58 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 $color:red;
+$montserrat: 'Montserrat', sans-serif;
+$wrapper_width: 1140px;
 body{
   padding:0;
   margin:0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f6c76b;
+  background: #ededed;
   font-family: 'Open Sans', sans-serif;
+  .parallax_scene{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    & > div > div{
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+    }
+    .key0{
+      background: url("/img/key0.png") no-repeat  calc(50% - 400px) 165px;
+    }
+    .key1{
+      background: url("/img/key1.png") no-repeat calc(50% + 400px) 216px;
+    }
+    .key3{
+      background: url("/img/key3.png") no-repeat 50% 60%;
+    }
+    .key4{
+      background: url("/img/key4.png") no-repeat  calc(50% - 500px) 100%;
+
+    }
+  }
 }
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1440px;
+  max-width: $wrapper_width;
 }
 
 .wrapper > *{
   padding: 20px;
   &:first-child{
-    padding-top: 0;
+    padding-top: 40px;
   }
 }
 
 .page-main {
   flex-grow: 1;
+
+
 }
 .title {
   font-size: 24px;
@@ -38,29 +66,81 @@ body{
   font-size: 16px;
 
   &.isDark{
-    .button{
-      background: #c6c6c6;
+    >a{
+      background: #313030;
       color: white;
       &.active, &:hover{
-        background: #ffd79b;
-        color: black;
+        background-color: #173b4c;
+        color: white;
       }
+
+      &.useful span.icon{
+        background: url("/img/dark/1.png") no-repeat left center;
+      }
+      &.love span.icon{
+        background: url("/img/dark/2.png") no-repeat left center;
+      }
+      &.fun span.icon{
+        background: url("/img/dark/3.png") no-repeat left center;
+      }
+      &.omg span.icon{
+        background: url("/img/dark/4.png") no-repeat left center;
+      }
+      &.cry span.icon{
+        background: url("/img/dark/5.png") no-repeat left center;
+      }
+      &.angry span.icon{
+        background: url("/img/dark/6.png") no-repeat left center;
+      }
+      &.sick span.icon{
+        background: url("/img/dark/7.png") no-repeat left center;
+      }
+
     }
   }
 
   &.isSmall{
     font-size: 12px;
+    span.icon{
+      width: 22px;
+      height: 18px;
+    }
   }
   a{
     display: flex;
     justify-content: center;
-    padding: 0 4px;
+    padding: 3px 4px;
     align-items: center;
     margin-right: 0.5em;
     border-radius: 4px;
     cursor: pointer;
-    background: #ECECEC;
-    border: 1px solid #ECECEC;
+    background-color: #ECECEC;
+    span.icon{
+      background-size: contain !important;
+      width: 34px;
+      height: 28px;
+    }
+    &.useful span.icon{
+      background: url("/img/1.png") no-repeat left center;
+    }
+    &.love span.icon{
+      background: url("/img/2.png") no-repeat left center;
+    }
+    &.fun span.icon{
+      background: url("/img/3.png") no-repeat left center;
+    }
+    &.omg span.icon{
+      background: url("/img/4.png") no-repeat left center;
+    }
+    &.cry span.icon{
+      background: url("/img/5.png") no-repeat left center;
+    }
+    &.angry span.icon{
+      background: url("/img/6.png") no-repeat left center;
+    }
+    &.sick span.icon{
+      background: url("/img/7.png") no-repeat left center;
+    }
 
     .icon img{
       height: 1rem;
@@ -76,11 +156,11 @@ body{
     }
 
     &.active, &:hover{
-      background: #FFE9BA;
+      background-color: #FFE9BA;
     }
 
     &:hover{
-      border: 1px solid #c4c4c4;
+      //border: 1px solid #c4c4c4;
     }
   }
 }
@@ -88,9 +168,9 @@ body{
 
   .container{
     padding: 1em;
-    border: 1px solid #c4c4c4;
-    border-radius: 6px;
-    background: white;
+    //border: 1px solid #c4c4c4;
+    //border-radius: 6px;
+    //background: white;
     align-content: stretch;
     &:first-child{
       border-radius: 0 0 6px 6px;
@@ -104,27 +184,66 @@ body{
       -webkit-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
       -moz-box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
       box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.17);
+      border: 1px solid #c4c4c4;
+      border-radius: 6px;
+      background: white;
+
+      .main_head{
+        background: #f3f3f3 url("/img/head.svg") no-repeat 13px center ;
+        color:#919191;
+        font-size: 16px;
+        text-align: center;
+        height: 43px;
+        line-height: 43px;
+        margin: -1em;
+      }
+
+      .title{
+        font-size: 80px;
+        font-family: $montserrat;
+        font-weight: 800;
+        margin-top: 0.25em;
+      }
+
+      &.isDark{
+        background: black;
+        color: white;
+        .main_head{
+          background: #272626 url("/img/head_dark.svg") no-repeat 13px center ;
+          color: #7d7d7d;
+        }
+      }
+
     }
   }
 
   .controls{
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
+    .group:first-child{
+      margin-right: 30px;
+    }
 
     .control{
       padding: 0.25em 0.5em;
-      background: none;
-      border-radius: 8px;
-      margin-right: 1em;
+      background: white;
+      border-radius: 8px 0 0 8px;
+      margin-right: -3px;
       cursor: pointer;
+      &:last-of-type{
+        border-radius: 0 8px 8px 0;
+
+      }
       &:hover{
         opacity: 0.8;
-        background: antiquewhite;
+
       }
 
       &.active{
-        background: white;
+        background: #E62849;
+        color: white;
       }
     }
   }
@@ -132,7 +251,50 @@ body{
   .page-footer{
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
+    align-items: flex-end;
     &.title{
 
     }
+    >div {
+      display: flex;
+      flex-direction: column;
+    }
+    .likely{
+      display: block;
+      margin-top: 5px;
+      .likely__widget_linkedin,
+      .likely__widget_whatsapp,
+      .likely__widget_telegram,
+      .likely__widget_twitter,
+      .likely__widget_facebook,
+      .likely__widget_vkontakte{
+        fill: #e32c4d;
+        padding: 2px;
+        background: #f0d2d7;
+        color: #e32c4d;
+      }
+    }
+
+    .email {
+      margin-top: 5px;
+      a {
+        background: #f0d2d7;
+        border-radius: 4px;
+        height: 34px;
+        color: #e32c4d;
+        padding: 2px 4px;
+        text-decoration: none;
+        font-weight: bold;
+
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    .park a{
+      display: flex;
+    }
+
   }

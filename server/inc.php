@@ -13,7 +13,8 @@ if ($contentType === "application/json") {
 
   //If json_decode failed, the JSON is invalid.
   if( is_array($decoded)) {
-	$val=Increment();  
+	  
+	$val=Increment($decoded['reaction'], $decoded['location']);  
 	echo json_encode($val);
   } else {
     // Send error back to user.
@@ -21,7 +22,7 @@ if ($contentType === "application/json") {
   }
 }
 
-function Increment(){
+function Increment($name, $location){
 	try {
 		$servername = "localhost";
 		$username = "root";
@@ -29,7 +30,8 @@ function Increment(){
 		$conn = new PDO("mysql:host=$servername;dbname=radio", $username, $password);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$stmt = $conn->prepare("SELECT id, count FROM counters WHERE id=1"); 
+		$user=$conn->prepare("SELECT id FROM users WHERE fingerprint=");
+		$stmt = $conn->prepare("SELECT id, count FROM counters WHERE name='".$name."' AND site='".$location."'"); 
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 		$id=$result['id'];

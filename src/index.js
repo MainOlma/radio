@@ -1,6 +1,7 @@
 //import 'bulma'
 import './main.scss';
 import * as Fingerprint2 from 'fingerprintjs2'
+import Parallax from 'parallax-js'
 
 function ready(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
@@ -11,16 +12,31 @@ function ready(fn) {
 }
 
 ready(function () {
-    setTimeout(function () {
-        Fingerprint2.get(function (components) {
-            console.log(components) // an array of components: {key: ..., value: ...}
-            let values = components.map(function (component) { return component.value })
-            let murmur = Fingerprint2.x64hash128(values.join(''), 31)
-            console.log(murmur)
-        })
-    }, 500)
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+        relativeInput: true,
+        calibrateX:true
+    });
+    function getFingerprint() {
+        //return  setTimeout(function () {
+        let fp =
+             Fingerprint2.get(function (components) {
+                let values = components.map(function (component) {
+                    return component.value
+                })
+                let murmur = Fingerprint2.x64hash128(values.join(''), 31)
+                console.log("mur = ",murmur);
+                fp=murmur
+
+            })
+        return fp
+        //}, 500)
+    }
+    let fpr = getFingerprint();
+    console.log("finger = ",fpr);
     const group = document.querySelector('.controls');
     let radioButtons=document.getElementById('radiobuttons')
+    let mainContainer=document.getElementById('main')
     group.addEventListener("click", toggleStyle, false)
     function toggleStyle(e) {
         if(e.target!==e.currentTarget){
@@ -31,17 +47,16 @@ ready(function () {
             e.target.classList.add('active')
 
             radioButtons.classList.toggle(clickedGroup)
+            mainContainer.classList.toggle(clickedGroup)
 
         }
         e.stopPropagation()
     }
 
     let location=document.location.href
-    console.log("loc: ",location)
     var elements = document.querySelectorAll('#radiobuttons>a');
     let elements_arr=[]
     Array.prototype.forEach.call(elements, function(el, i){
-
         elements_arr.push(el.classList[0])
     });
 
@@ -57,26 +72,34 @@ ready(function () {
     }).then(function(response) {
         if(response.ok) {
             response.json().then(function(json) {
-                console.log(json)
                 const value = document.getElementById('reactioncount');
                 json.reactions.forEach((v,i,a)=>{
-                    console.log(v)
                     let span=document.createElement("span")
                     span.innerText=v.counter
+                    span.classList.add('counter_value')
                     if (document.getElementsByClassName(v.name)[0])
                     document.getElementsByClassName(v.name)[0].appendChild(span);
                 })
-                //value.innerText=json.value;
             });
         } else {
             console.log('Network request  failed with response ' + response.status + ': ' + response.statusText);
         }
     })
 
-    const reaction = document.getElementById('reaction');
-    reaction.addEventListener("click", incrementIt, false)
+
+    // querySelector, jQuery style
+    let $ = function (selector) {
+        return document.querySelector(selector);
+    };
+    let links = $('#radiobuttons').getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        link.onclick = incrementIt;
+    }
     function incrementIt() {
-        console.log("click")
+        let target = this
+        let emotion=this.classList[0]
+        //let reaction = this.classList[0]
         fetch("http://rad/inc.php", {
             method: "POST",
             headers: {
@@ -84,14 +107,12 @@ ready(function () {
             },
             body: JSON.stringify({
                 "location": location,
-                "reactions":elements_arr
+                "reaction": emotion
             })
         }).then(function(response) {
             if(response.ok) {
                 response.json().then(function(json) {
-                    console.log(json)
-                    const value = document.getElementById('reactioncount');
-                    value.innerText=json;
+                    target.getElementsByClassName('counter_value')[0].innerText=json;
                 });
             } else {
                 console.log('Network request  failed with response ' + response.status + ': ' + response.statusText);

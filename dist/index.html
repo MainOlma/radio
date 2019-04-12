@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/src/likely/likely.js"></script>
+    <link rel="stylesheet" href="/src/likely/likely.css">
 <link href="style.bundle.css" rel="stylesheet"></head>
 <body>
+<div class="parallax_scene" id="scene">
+    <div  data-depth="0.2" ><div class="key0"></div></div>
+    <div  data-depth="0.6"><div class="key1"></div></div>
+    <div  data-depth="0.8"><div class="key3"></div></div>
+    <div data-depth="1"><div class="key4"></div></div>
+</div>
 <div class="wrapper">
-    <main class="page-main">
+    <main class="page-main"  >
         <!-- content here -->
-        <div class="container main">
+
+        <div class="container main" id="main">
+            <div class="main_head">
+                <div class="main_head_left"></div>
+                radioemoji.by
+            </div>
             <h1 class="title">
                 Радиоэмоции
             </h1>
@@ -20,61 +33,46 @@
             </p>
             <div class="radiobtns" id="radiobuttons">
                 <a class="useful active" id="reaction">
-                    <span class="icon is-small">
-                       <img src="/img/1.png">
-                    </span>
+                    <span class="icon"></span>
                     <span>Полезно</span>
-
                 </a>
 
                 <a class="love">
-                     <span class="icon is-small">
-                        <img src="/img/2.png">
-                     </span>
+                     <span class="icon is-small"></span>
                 </a>
 
                 <a class="fun">
-                     <span class="icon is-small">
-                        <img src="/img/3.png">
-                     </span>
+                     <span class="icon is-small"></span>
                     <span>Смешно</span>
                 </a>
 
                 <a class="omg">
-                     <span class="icon is-small">
-                       <img src="/img/4.png">
-                     </span>
+                     <span class="icon is-small"></span>
                 </a>
 
                 <a class="cry">
-                     <span class="icon is-small">
-                       <img src="/img/5.png">
-                     </span>
+                     <span class="icon is-small"></span>
                 </a>
 
                 <a class="angry">
-                     <span class="icon is-small">
-                        <img src="/img/6.png">
-                     </span>
+                     <span class="icon is-small"></span>
 
                 </a>
 
                 <a class="sick">
-                     <span class="icon is-small">
-                        <img src="/img/7.png">
-                     </span>
+                     <span class="icon is-small"></span>
                 </a>
 
             </div>
         </div>
         <div class="controls">
             <div class="group" id="isDark">
-                <a class="control active" >Светлая тема</a>
-                <a class="control" >Тёмная</a>
+                <a class="control active" >светлые</a>
+                <a class="control" >тёмные</a>
             </div>
             <div class="group" id="isSmall">
-                <a class="control active" >Большой размер</a>
-                <a class="control" >Малый</a>
+                <a class="control active" >большие</a>
+                <a class="control" >малые</a>
             </div>
         </div>
 
@@ -91,14 +89,23 @@
     </main>
     <footer class="page-footer">
         <!-- content here -->
-        <div class="title">
-            Сделано в Парке
+        <div class="">
+            Напишите вопрос
+            <div class="email" ><a href="mailto:radioemoji@gmail.com">radioemoji@gmail.com</a></div>
         </div>
-        <div class="title">
-            Почта для связи
+        <div class="">
+            <div>Расскажите про нас друзьям</div>
+            <div class="likely">
+                <div class="twitter"></div>
+                <div class="facebook"></div>
+                <div class="vkontakte"></div>
+                <div class="telegram"></div>
+                <div class="linkedin"></div>
+                <div class="whatsapp"></div>
+            </div>
         </div>
-        <div class="title">
-            Лайкли
+        <div class="park">
+            <a href="intuition"><img alt="park" src="/img/park.svg" width="76" height="61"> </a>
         </div>
     </footer>
 </div>
