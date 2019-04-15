@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 06 2019 г., 19:58
+-- Время создания: Апр 15 2019 г., 23:55
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.1.22
 
@@ -31,28 +31,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `counters` (
   `id` int(11) NOT NULL,
   `count` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `site` varchar(1000) DEFAULT NULL
+  `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `counters`
 --
 
-INSERT INTO `counters` (`id`, `count`, `name`, `site`) VALUES
-(1, 33, 'useful', 'http://localhost:8080/'),
-(2, 5, 'angry', 'http://localhost:8080/');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `sites`
---
-
-CREATE TABLE `sites` (
-  `site` varchar(1000) NOT NULL,
-  `reaction` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `counters` (`id`, `count`, `name`) VALUES
+(1, 47, 'useful'),
+(2, 3, 'love'),
+(3, 8, 'omg'),
+(4, 5, 'cry'),
+(5, 14, 'fun'),
+(6, 10, 'sick'),
+(7, 9, 'angry');
 
 -- --------------------------------------------------------
 
@@ -62,9 +55,16 @@ CREATE TABLE `sites` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `fingerprint` varchar(100) NOT NULL,
-  `site` varchar(1000) NOT NULL
+  `fingerprint` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `fingerprint`) VALUES
+(4, '55ae6a8a06b2ec7bd5b4765554c8bd7f'),
+(5, '7951362f679b7e123ed8a814e0870827');
 
 --
 -- Индексы сохранённых таблиц
@@ -75,6 +75,22 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `counters`
   ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
