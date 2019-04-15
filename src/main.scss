@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "./mixins.sass";
 $color:red;
 $montserrat: 'Montserrat', sans-serif;
 $wrapper_width: 1140px;
@@ -19,6 +20,9 @@ body{
       width: 100vw;
       height: 100vh;
       z-index: 10;
+      @include until($fullhd){
+        display: none;
+      }
     }
     .key0{
       background: url("/img/key0.png") no-repeat  calc(50% - 400px) 165px;
@@ -31,7 +35,6 @@ body{
     }
     .key4{
       background: url("/img/key4.png") no-repeat  calc(50% - 500px) 100%;
-
     }
   }
 }
@@ -168,9 +171,6 @@ body{
 
   .container{
     padding: 1em;
-    //border: 1px solid #c4c4c4;
-    //border-radius: 6px;
-    //background: white;
     align-content: stretch;
     &:first-child{
       border-radius: 0 0 6px 6px;
