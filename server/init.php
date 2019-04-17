@@ -31,10 +31,8 @@ if ($contentType === "application/json") {
 function GetValue($name){
 	$result=0;
 	try {
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$conn = new PDO("mysql:host=$servername;dbname=radio", $username, $password);
+		include 'db.php';
+		$conn = new PDO("mysql:host=$servername;dbname=$basename", $username, $password);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("SELECT id, count FROM counters WHERE name='".$name."'"); 

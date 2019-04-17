@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 $response=new stdClass();
+
 if ($contentType === "application/json") {
   //Receive the RAW post data.
   $content = trim(file_get_contents("php://input"));
@@ -24,10 +25,8 @@ if ($contentType === "application/json") {
 function Increment($name, $fingerprint){
 	$response=new stdClass();
 	try {
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$conn = new PDO("mysql:host=$servername;dbname=radio", $username, $password);
+		include 'db.php';
+		$conn = new PDO("mysql:host=$servername;dbname=$basename", $username, $password);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		

@@ -78,12 +78,24 @@
         <h1 class="title">Установка</h1>
         <div class="container">
             <ol>
-                <li>Выбрать конфигурацию Радиосмайлов и получить соответствующие скрипт и стили.</li>
-                <li>Вставить скрипт плагина на сайт, указав ключ доступа.</li>
-                <li>Подключить стили.</li>
+                <li>Убедитесь, что ваш сайт размещён на хостинге с поддержкой php и mysql</li>
+
+                <li>Скачайте архив</li>
+
+                <li> Добавьте файлы <code>init.php</code> , <code>bd.php</code>  и <code>inc.php</code>  к себе в корень сайта.</li>
+
+                <li>Импортируйте базу данных со счётчиками эмоций из файла radioempji.sql.</li>
+
+                <li>Вставьте свои реквизиты доступа к базе данных в файл db.php</li>
+
+                <li>Добавьте в конец <code>&lt;body&gt;</code> на странице:</li>
+
+            <code>&lt;script src="radioemoji.js"&gt;&lt;/script&gt;<br>
+                &lt;link rel="stylesheet" href="radioemoji.css"&gt;</code>
+
+                <li>Вставьте радиоэмоции в нужное место на странице, подпишите как нравится.</li>
             </ol>
         </div>
-        <h1 class="title">Установили</h1>
 
     </main>
     <footer class="page-footer">
@@ -111,5 +123,5 @@
 
 
 
-<script type="text/javascript" src="bundle.js"></script></body>
+<script type="text/javascript" src="index.js"></script><script type="text/javascript" src="radioemoji.js"></script></body>
 </html>
