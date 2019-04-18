@@ -69,7 +69,7 @@ body{
   font-size: 16px;
 
   &.isDark{
-    >a{
+    >div{
       background: #313030;
       color: white;
       &.active, &:hover{
@@ -109,7 +109,7 @@ body{
       height: 18px;
     }
   }
-  a{
+  div{
     display: flex;
     justify-content: center;
     padding: 3px 4px;
@@ -178,6 +178,26 @@ body{
     }
     .title{
       margin-top: 0;
+    }
+
+    ol{
+      margin: 0;
+      padding: 0.5em;
+    }
+
+    li{
+      line-height: 1.25em;
+      margin-bottom: 16px;
+    }
+
+    li+pre{
+      margin-top: -1em;
+      margin-bottom: -0.5em;
+    }
+
+    pre{
+      margin: 0;
+      padding: 0;
     }
 
     &.main{
@@ -263,6 +283,7 @@ body{
     .likely{
       display: block;
       margin-top: 5px;
+      margin-bottom: -12px;
       .likely__widget_linkedin,
       .likely__widget_whatsapp,
       .likely__widget_telegram,
@@ -295,6 +316,7 @@ body{
     }
     .park a{
       display: flex;
+      margin-bottom: -2px;
     }
 
   }

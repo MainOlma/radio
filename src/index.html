@@ -8,13 +8,21 @@
 </head>
 <body>
 <div class="parallax_scene" id="scene">
-    <div  data-depth="0.2" ><div class="key0"></div></div>
-    <div  data-depth="0.6"><div class="key1"></div></div>
-    <div  data-depth="0.8"><div class="key3"></div></div>
-    <div data-depth="1"><div class="key4"></div></div>
+    <div data-depth="0.2">
+        <div class="key0"></div>
+    </div>
+    <div data-depth="0.6">
+        <div class="key1"></div>
+    </div>
+    <div data-depth="0.8">
+        <div class="key3"></div>
+    </div>
+    <div data-depth="1">
+        <div class="key4"></div>
+    </div>
 </div>
 <div class="wrapper">
-    <main class="page-main"  >
+    <main class="page-main">
         <!-- content here -->
 
         <div class="container main" id="main">
@@ -29,49 +37,26 @@
                 Помогают узнать, что думают пользователи о вашем контенте на сайте.
             </p>
             <p>
-                Семь эмоций в наборе. Любой цвет на кнопках
+                Семь эмоций в наборе и свой текст на кнопках.
             </p>
             <div class="radiobtns" id="radiobuttons">
-                <a class="useful active" id="reaction">
-                    <span class="icon"></span>
-                    <span>Полезно</span>
-                </a>
-
-                <a class="love">
-                     <span class="icon"></span>
-                </a>
-
-                <a class="fun">
-                     <span class="icon"></span>
-                    <span>Смешно</span>
-                </a>
-
-                <a class="omg">
-                     <span class="icon"></span>
-                </a>
-
-                <a class="cry">
-                     <span class="icon"></span>
-                </a>
-
-                <a class="angry">
-                     <span class="icon"></span>
-                </a>
-
-                <a class="sick">
-                     <span class="icon is-small"></span>
-                </a>
-
+                <div class="useful active">Полезно</div>
+                <div class="love"></div>
+                <div class="fun">Смешно</div>
+                <div class="omg"></div>
+                <div class="cry"></div>
+                <div class="angry"></div>
+                <div class="sick"></div>
             </div>
         </div>
         <div class="controls">
             <div class="group" id="isDark">
-                <a class="control active" >светлые</a>
-                <a class="control" >тёмные</a>
+                <a class="control active">светлые</a>
+                <a class="control">тёмные</a>
             </div>
             <div class="group" id="isSmall">
-                <a class="control active" >большие</a>
-                <a class="control" >малые</a>
+                <a class="control active">большие</a>
+                <a class="control">малые</a>
             </div>
         </div>
 
@@ -82,18 +67,37 @@
 
                 <li>Скачайте архив</li>
 
-                <li> Добавьте файлы <code>init.php</code> , <code>bd.php</code>  и <code>inc.php</code>  к себе в корень сайта.</li>
+                <li> Добавьте файлы <code>init.php</code> , <code>bd.php</code> и <code>inc.php</code> к себе в корень
+                    сайта.
+                </li>
 
-                <li>Импортируйте базу данных со счётчиками эмоций из файла radioempji.sql.</li>
+                <li>Импортируйте базу данных со счётчиками эмоций из файла radioemoji.sql.</li>
 
                 <li>Вставьте свои реквизиты доступа к базе данных в файл db.php</li>
 
                 <li>Добавьте в конец <code>&lt;body&gt;</code> на странице:</li>
 
-            <code>&lt;script src="radioemoji.js"&gt;&lt;/script&gt;<br>
-                &lt;link rel="stylesheet" href="radioemoji.css"&gt;</code>
+                <pre>
+                    <code class="xml">
+&lt;script src="radioemoji.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="radioemoji.css"&gt;
+                    </code>
+                </pre>
 
                 <li>Вставьте радиоэмоции в нужное место на странице, подпишите как нравится.</li>
+                <pre>
+                    <code class="xml">
+&lt;div class="radiobtns" id="radiobuttons"&gt;
+    &lt;div class="useful active"&gt;Полезно&lt;/div&gt;
+    &lt;div class="love"&gt;&lt;/div&gt;
+    &lt;div class="fun"&gt;Смешно&lt;/div&gt;
+    &lt;div class="omg"&gt;&lt;/div&gt;
+    &lt;div class="cry"&gt;&lt;/div&gt;
+    &lt;div class="angry"&gt;&lt;/div&gt;
+    &lt;div class="sick"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
             </ol>
         </div>
 
@@ -102,7 +106,7 @@
         <!-- content here -->
         <div class="">
             Напишите вопрос
-            <div class="email" ><a href="mailto:radioemoji@gmail.com">radioemoji@gmail.com</a></div>
+            <div class="email"><a href="mailto:radioemoji@gmail.com">radioemoji@gmail.com</a></div>
         </div>
         <div class="">
             <div>Расскажите про нас друзьям</div>
@@ -120,7 +124,6 @@
         </div>
     </footer>
 </div>
-
 
 
 </body>

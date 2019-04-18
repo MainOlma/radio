@@ -32,6 +32,7 @@
   "dependencies": {
     "bulma": "^0.7.4",
     "fingerprintjs2": "^2.0.6",
+    "highlight.js": "^9.15.6",
     "parallax-js": "^3.1.0"
   }
 }

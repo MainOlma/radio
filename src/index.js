@@ -1,7 +1,9 @@
-//import 'bulma'
+
 import './main.scss';
-//import * as Fingerprint2 from 'fingerprintjs2'
-//import initRadioemoji from './radioemoji'
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/xml';
+hljs.registerLanguage('javascript', javascript);
+import 'highlight.js/styles/github.css';
 import Parallax from 'parallax-js'
 
 function ready(fn) {
@@ -17,6 +19,9 @@ ready(function () {
     makeParallax()
     handleControls()
     //initRadioemoji
+    document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+    });
 
     function makeParallax() {
         const scene = document.getElementById('scene');

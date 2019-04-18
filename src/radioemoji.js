@@ -2,9 +2,16 @@ import * as Fingerprint2 from 'fingerprintjs2'
 let url = (process.env.NODE_ENV=='development') ? "http://rad/" : "/"
 function initRadioemoji() {
 
-    const elements = document.querySelectorAll('#radiobuttons>a');
+    const elements = document.querySelectorAll('#radiobuttons>div');
     const elements_arr=[]
     Array.prototype.forEach.call(elements, function(el, i){
+        const icon=document.createElement("span")
+        const text=document.createElement("span")
+        text.innerText=el.innerHTML
+        el.innerHTML=''
+        icon.classList.add("icon")
+        el.appendChild(icon)
+        el.appendChild(text)
         elements_arr.push(el.classList[0])
     });
 

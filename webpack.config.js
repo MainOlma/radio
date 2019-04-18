@@ -26,7 +26,7 @@ module.exports = () =>{
                     }
                 },
                 {
-                    test: /\.(sass|scss)$/,
+                    test: /\.(sass|scss|css)$/,
                     //include: path.resolve(__dirname, 'src/'),
                     use: ExtractTextPlugin.extract({
                         use: [{
