@@ -1,0 +1,66 @@
+.radiobtns{
+  display: flex;
+  font-size: 16px;
+
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+
+    span.icon{
+      width: 46px;
+      height: 46px;
+      filter: grayscale(1);
+      transition: all 0.1s ease;
+    }
+    &.useful span.icon{
+      background: url("/img/svg/1.svg") no-repeat left center;
+    }
+    &.love span.icon{
+      background: url("/img/svg/2.svg") no-repeat left center;
+    }
+    &.fun span.icon{
+      background: url("/img/svg/3.svg") no-repeat left center;
+    }
+    &.omg span.icon{
+      background: url("/img/svg/4.svg") no-repeat left center;
+    }
+    &.cry span.icon{
+      background: url("/img/svg/5.svg") no-repeat left center;
+    }
+    &.angry span.icon{
+      background: url("/img/svg/6.svg") no-repeat left center;
+    }
+    &.sick span.icon{
+      background: url("/img/svg/7.svg") no-repeat left center;
+    }
+
+    .icon{
+      display: flex;
+    }
+
+
+    span:not(.icon){
+      padding-right: 4px;
+      display: flex;
+    }
+
+    span:not(.icon)+span:not(.icon):before{
+      content: "\00b7";
+      padding-right: 4px;
+    }
+
+    &.active, &:hover{
+      color: #E82627;
+      span {
+        filter: grayscale(0);
+      }
+    }
+
+
+  }
+}

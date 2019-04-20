@@ -10,8 +10,9 @@ function initRadioemoji() {
         text.innerText=el.innerHTML
         el.innerHTML=''
         icon.classList.add("icon")
+        text.classList.add("text")
         el.appendChild(icon)
-        el.appendChild(text)
+        if ( text.innerText!='') el.appendChild(text)
         elements_arr.push(el.classList[0])
     });
 
@@ -45,7 +46,7 @@ function loadCounters( elements_arr) {
                         span.innerText=v.counter
                         span.classList.add('counter_value')
                         if (document.getElementsByClassName(v.name)[0])
-                            document.getElementsByClassName(v.name)[0].appendChild(span);
+                            if (v.counter>0) document.getElementsByClassName(v.name)[0].appendChild(span);
                     })
             });
         } else {

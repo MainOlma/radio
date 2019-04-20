@@ -7,20 +7,6 @@
     <link rel="stylesheet" href="/src/likely/likely.css">
 <link href="style.bundle.css" rel="stylesheet"></head>
 <body>
-<div class="parallax_scene" id="scene">
-    <div data-depth="0.2">
-        <div class="key0"></div>
-    </div>
-    <div data-depth="0.6">
-        <div class="key1"></div>
-    </div>
-    <div data-depth="0.8">
-        <div class="key3"></div>
-    </div>
-    <div data-depth="1">
-        <div class="key4"></div>
-    </div>
-</div>
 <div class="wrapper">
     <main class="page-main">
         <!-- content here -->
@@ -35,8 +21,6 @@
             </h1>
             <p>
                 Помогают узнать, что думают пользователи о вашем контенте на сайте.
-            </p>
-            <p>
                 Семь эмоций в наборе и свой текст на кнопках.
             </p>
             <div class="radiobtns" id="radiobuttons">
@@ -49,45 +33,20 @@
                 <div class="sick"></div>
             </div>
         </div>
-        <div class="controls">
-            <div class="group" id="isDark">
-                <a class="control active">светлые</a>
-                <a class="control">тёмные</a>
-            </div>
-            <div class="group" id="isSmall">
-                <a class="control active">большие</a>
-                <a class="control">малые</a>
-            </div>
-        </div>
 
         <h1 class="title">Установка</h1>
-        <div class="container">
-            <ol>
-                <li>Убедитесь, что ваш сайт размещён на хостинге с поддержкой php и mysql</li>
-
-                <li>Скачайте архив</li>
-
-                <li> Добавьте файлы <code>init.php</code> , <code>bd.php</code> и <code>inc.php</code> к себе в корень
-                    сайта.
-                </li>
-
-                <li>Импортируйте базу данных со счётчиками эмоций из файла radioemoji.sql.</li>
-
-                <li>Вставьте свои реквизиты доступа к базе данных в файл db.php</li>
+        <div class="container install">
+            <ul>
+                <li>Убедитесь, что ваш сайт размещён на хостинге с поддержкой php и mysql. Скачайте архив. Добавьте файлы <code>init.php</code> , <code>bd.php</code> и <code>inc.php</code> к себе в корень
+                    сайта. Импортируйте базу данных со счётчиками эмоций из файла <code>radioemoji.sql</code>.Вставьте свои реквизиты доступа к базе данных в файл db.php</li>
 
                 <li>Добавьте в конец <code>&lt;body&gt;</code> на странице:</li>
 
-                <pre>
-                    <code class="xml">
-&lt;script src="radioemoji.js"&gt;&lt;/script&gt;
+<pre><code>&lt;script src="radioemoji.js"&gt;&lt;/script&gt;
 &lt;link rel="stylesheet" href="radioemoji.css"&gt;
-                    </code>
-                </pre>
-
+</code></pre>
                 <li>Вставьте радиоэмоции в нужное место на странице, подпишите как нравится.</li>
-                <pre>
-                    <code class="xml">
-&lt;div class="radiobtns" id="radiobuttons"&gt;
+<pre><code>&lt;div class="radiobtns" id="radiobuttons"&gt;
     &lt;div class="useful active"&gt;Полезно&lt;/div&gt;
     &lt;div class="love"&gt;&lt;/div&gt;
     &lt;div class="fun"&gt;Смешно&lt;/div&gt;
@@ -96,21 +55,21 @@
     &lt;div class="angry"&gt;&lt;/div&gt;
     &lt;div class="sick"&gt;&lt;/div&gt;
 &lt;/div&gt;
-                    </code>
-                </pre>
-            </ol>
+</code> </pre>
+            </ul>
+            <a class="download">Скачать архив</a>
         </div>
 
     </main>
     <footer class="page-footer">
         <!-- content here -->
-        <div class="">
+        <div class="question">
             Напишите вопрос
             <div class="email"><a href="mailto:radioemoji@gmail.com">radioemoji@gmail.com</a></div>
         </div>
-        <div class="">
+        <div class="tellaboutus">
             <div>Расскажите про нас друзьям</div>
-            <div class="likely">
+            <div class="likely likely-big">
                 <div class="twitter"></div>
                 <div class="facebook"></div>
                 <div class="vkontakte"></div>
@@ -120,7 +79,16 @@
             </div>
         </div>
         <div class="park">
-            <a href="http://intuition.team/park"><img alt="park" src="/img/park.svg" width="76" height="61"> </a>
+            <svg width="73" height="57" viewBox="0 0 73 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="23" width="72" height="34" rx="4" fill="#F0D2D8"/>
+                <path d="M17.7102 0.078125L7.07904 49.7266H10.715L20.5952 3.4375H24.4683L14.588 49.7266H18.224L28.8156 0.078125H17.7102Z" fill="#E62849"/>
+                <path d="M43.5569 37.7344C47.1138 37.7344 49.5246 35.4688 50.4336 31.4453L55.7294 6.60156C56.2431 4.33594 55.9665 2.65625 55.018 1.5625C54.188 0.625 52.9234 0.117188 51.2635 0.117188H49.3665L48.6551 3.4375H50.8288C51.3821 3.4375 51.8563 3.55469 52.0539 3.82812C52.4491 4.21875 52.4491 5.07812 52.2515 6.32812L46.9557 31.1719C46.3234 33.9453 45.0587 34.3359 44.0312 34.3359H41.1461L40.4348 37.7344H43.5569Z" fill="#E62849"/>
+                <path d="M49.2874 3.4375L49.9988 0.117188C48.4575 0.117188 46.4024 0.117188 46.4024 0.117188L35.7712 49.7656H39.4072L49.2874 3.4375Z" fill="#E62849"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M39.3281 0.078125H39.4862L33.2814 49.7266H29.6455L30.5149 42.4219H26.5233L24.2706 49.7266H20.6347L35.7317 0.078125H35.8898H39.3281ZM35.7317 8.86719L27.5904 39.1016H30.9497L35.7317 8.86719Z" fill="#E62849"/>
+                <path d="M53.6743 49.7266H50.0383L60.6695 0.078125H64.3054L53.6743 49.7266Z" fill="#E62849"/>
+                <path d="M68.8108 0.078125L59.2467 23.5156L62.9222 23.3984L72.7629 0.078125H68.8108Z" fill="#E62849"/>
+                <rect x="59.2467" y="23.3984" width="3.67545" height="26.3281" fill="#E62849"/>
+            </svg>
         </div>
     </footer>
 </div>
