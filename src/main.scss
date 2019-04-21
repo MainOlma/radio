@@ -55,7 +55,10 @@ body{
   padding-left: 24px;
   margin-left: 4px;
   @include until($tablet){
-    padding-left: 4px;
+    padding-left: 10px;
+    font-size: 22px;
+    line-height: 32px;
+    margin-top: 38px;
   }
 }
 
@@ -71,7 +74,9 @@ body{
       margin: 0;
       padding: 12px;
       list-style-type: none;
-      margin-bottom: 10px;
+      @include until($tablet){
+        padding: 14px;
+      }
     }
 
     li{
@@ -81,6 +86,8 @@ body{
     pre{
       margin:-1em 0 1em 1em;
       padding: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
       &:last-child{
         margin-bottom: 0;
       }
@@ -107,6 +114,7 @@ body{
       box-shadow: inset 0px 2px 1px #FF4B6A, inset 0px -2px 1px #D80328;
       border-radius: 9px;
       cursor: pointer;
+      text-decoration: none;
       &:hover{
         //box-shadow: inset 0px 0px 1px #FF4B6A, inset 0px 0px 1px #D80328;
       }
@@ -115,7 +123,9 @@ body{
         box-shadow: inset 0px 0px 1px #FF4B6A, inset 0px 0px 1px #D80328;
       }
       @include until($tablet){
-        margin-left: 12px;
+        margin-left: 15px;
+        font-size: 18px;
+        padding: 8px 20px;
       }
     }
 
@@ -125,7 +135,8 @@ body{
       line-height: 26px;
       @include until($tablet){
         font-size: 15px;
-        padding: 1em 6px 0 0px;
+        padding: 5px 6px 0 0px;
+        line-height: 24px;
       }
     }
 
@@ -148,10 +159,21 @@ body{
         height: 43px;
         line-height: 43px;
         margin: -1em;
+        display: flex;
+        justify-content: center;
         //font-weight: 300;
         @include until($tablet){
-         background:  #f3f3f3;
+          background:  #f3f3f3;
           margin: -16px 0px;
+          height: 53px;
+          div{
+            background: #e6e6e6;
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
 
       }
@@ -164,7 +186,8 @@ body{
         padding-left: 0;
         @include until($tablet){
           font-size: 36px;
-          margin: 16px 12px 0;
+          margin: 31px 12px 5px;
+          line-height: 44px;
         }
       }
 
@@ -175,6 +198,8 @@ body{
         line-height: 30px;
         @include until($tablet){
           font-size: 18px;
+          line-height: 24px;
+          margin-bottom: 16px;
         }
       }
 
@@ -194,7 +219,7 @@ body{
     @include until($tablet) {
       flex-wrap: wrap;
       font-size: 15px;
-      padding: 53px 18px 37px;
+      padding: 44px 22px 37px;
     }
 
     >div {

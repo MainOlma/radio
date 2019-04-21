@@ -1,0 +1,53 @@
+#radioemoji {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px; }
+#radioemoji div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px; }
+#radioemoji div span.icon {
+  width: 46px;
+  height: 46px;
+  filter: grayscale(1);
+  transition: all 0.1s ease; }
+#radioemoji div.useful span.icon {
+  background: url("img/svg/1.svg") no-repeat left center; }
+#radioemoji div.love span.icon {
+  background: url("img/svg/2.svg") no-repeat left center; }
+#radioemoji div.fun span.icon {
+  background: url("img/svg/3.svg") no-repeat left center; }
+#radioemoji div.omg span.icon {
+  background: url("img/svg/4.svg") no-repeat left center; }
+#radioemoji div.cry span.icon {
+  background: url("img/svg/5.svg") no-repeat left center; }
+#radioemoji div.angry span.icon {
+  background: url("img/svg/6.svg") no-repeat left center; }
+#radioemoji div.sick span.icon {
+  background: url("img/svg/7.svg") no-repeat left center; }
+#radioemoji div .icon {
+  display: flex; }
+#radioemoji div span:not(.icon) {
+  padding-right: 4px;
+  display: flex; }
+#radioemoji div span:not(.icon) + span:not(:empty):before {
+  content: "\B7";
+  padding-right: 4px; }
+@media (hover: hover) {
+  #radioemoji div:hover {
+    color: #E82627; }
+  #radioemoji div:hover span {
+    filter: grayscale(0); } }
+@media (hover: none) {
+  #radioemoji div:hover {
+    color: inherit; }
+  #radioemoji div:hover span {
+    filter: grayscale(1); } }
+#radioemoji div.active {
+  color: #E82627; }
+#radioemoji div.active span {
+  filter: grayscale(0); }
