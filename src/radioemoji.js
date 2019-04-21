@@ -2,7 +2,7 @@ import * as Fingerprint2 from 'fingerprintjs2'
 let url = (process.env.NODE_ENV=='development') ? "http://rad/" : "/"
 function initRadioemoji() {
 
-    const elements = document.querySelectorAll('#radiobuttons>div');
+    const elements = document.querySelectorAll('#radioemoji>div');
     const elements_arr=[]
     Array.prototype.forEach.call(elements, function(el, i){
         const icon=document.createElement("span")
@@ -21,7 +21,7 @@ function initRadioemoji() {
     let $ = function (selector) {
         return document.querySelector(selector);
     };
-    let links = $('#radiobuttons').getElementsByTagName('a');
+    let links = $('#radioemoji').getElementsByTagName('a');
     for (var i = 0; i < links.length; i++) {
         var link = links[i];
         link.onclick = incrementCounter;

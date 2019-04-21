@@ -23,7 +23,7 @@
                 Помогают узнать, что думают пользователи о вашем контенте на сайте.
                 Семь эмоций в наборе и свой текст на кнопках.
             </p>
-            <div class="radiobtns" id="radiobuttons">
+            <div id="radioemoji">
                 <div class="useful active">Полезно</div>
                 <div class="love"></div>
                 <div class="fun">Смешно</div>
@@ -37,8 +37,8 @@
         <h1 class="title">Установка</h1>
         <div class="container install">
             <ul>
-                <li>Убедитесь, что ваш сайт размещён на хостинге с поддержкой php и mysql. Скачайте архив. Добавьте файлы <code>init.php</code> , <code>bd.php</code> и <code>inc.php</code> к себе в корень
-                    сайта. Импортируйте базу данных со счётчиками эмоций из файла <code>radioemoji.sql</code>.Вставьте свои реквизиты доступа к базе данных в файл db.php</li>
+                <li>Убедитесь, что ваш сайт размещён на&nbsp;хостинге с&nbsp;поддержкой <code>php</code> и&nbsp;<code>mysql.</code> Скачайте архив. Добавьте файлы <code>init.php</code> , <code>bd.php</code> и <code>inc.php</code> к&nbsp;себе в&nbsp;корень
+                    сайта. Импортируйте базу данных со&nbsp;счётчиками эмоций из&nbsp;файла <code>radioemoji.sql</code>. Вставьте свои реквизиты доступа к&nbsp;базе данных в&nbsp;файл <code>db.php</code></li>
 
                 <li>Добавьте в конец <code>&lt;body&gt;</code> на странице:</li>
 
@@ -46,7 +46,7 @@
 &lt;link rel="stylesheet" href="radioemoji.css"&gt;
 </code></pre>
                 <li>Вставьте радиоэмоции в нужное место на странице, подпишите как нравится.</li>
-<pre><code>&lt;div class="radiobtns" id="radiobuttons"&gt;
+<pre><code>&lt;div id="radioemoji"&gt;
     &lt;div class="useful active"&gt;Полезно&lt;/div&gt;
     &lt;div class="love"&gt;&lt;/div&gt;
     &lt;div class="fun"&gt;Смешно&lt;/div&gt;
@@ -79,8 +79,9 @@
             </div>
         </div>
         <div class="park">
+            <a href="http://intuition.team/park" target="_blank">
             <svg width="73" height="57" viewBox="0 0 73 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="23" width="72" height="34" rx="4" fill="#F0D2D8"/>
+                <rect y="25" width="72" height="32" rx="4" fill="#F0D2D8"/>
                 <path d="M17.7102 0.078125L7.07904 49.7266H10.715L20.5952 3.4375H24.4683L14.588 49.7266H18.224L28.8156 0.078125H17.7102Z" fill="#E62849"/>
                 <path d="M43.5569 37.7344C47.1138 37.7344 49.5246 35.4688 50.4336 31.4453L55.7294 6.60156C56.2431 4.33594 55.9665 2.65625 55.018 1.5625C54.188 0.625 52.9234 0.117188 51.2635 0.117188H49.3665L48.6551 3.4375H50.8288C51.3821 3.4375 51.8563 3.55469 52.0539 3.82812C52.4491 4.21875 52.4491 5.07812 52.2515 6.32812L46.9557 31.1719C46.3234 33.9453 45.0587 34.3359 44.0312 34.3359H41.1461L40.4348 37.7344H43.5569Z" fill="#E62849"/>
                 <path d="M49.2874 3.4375L49.9988 0.117188C48.4575 0.117188 46.4024 0.117188 46.4024 0.117188L35.7712 49.7656H39.4072L49.2874 3.4375Z" fill="#E62849"/>
@@ -89,6 +90,7 @@
                 <path d="M68.8108 0.078125L59.2467 23.5156L62.9222 23.3984L72.7629 0.078125H68.8108Z" fill="#E62849"/>
                 <rect x="59.2467" y="23.3984" width="3.67545" height="26.3281" fill="#E62849"/>
             </svg>
+            </a>
         </div>
     </footer>
 </div>

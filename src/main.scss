@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800|PT+Mono');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800|PT+Mono');
 @import "./mixins.sass";
 @import "./radioemoji.scss";
-$color:red;
-$montserrat: 'Montserrat', sans-serif;
+
+$font_system: system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font_montserrat: 'Montserrat', sans-serif;
+$font_mono: 'PT Mono';
+
 $wrapper_width: 840px;
+
+$transition: background .33s ease-out,color .33s ease-out,fill .33s ease-out;
+
 body{
   padding:0;
   margin:0;
@@ -12,7 +17,7 @@ body{
   flex-direction: column;
   align-items: center;
   background: #ededed;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: $font_system;
 }
 .wrapper {
   display: flex;
@@ -30,18 +35,17 @@ body{
 
 .page-main {
   flex-grow: 1;
-
-
 }
+
 .title {
   font-size: 32px;
-  font-family: 'Montserrat';
+  font-family: $font_montserrat;
   font-weight: 800;
   margin-top: 54px;
   margin-bottom: -0.5em;
-  letter-spacing: -1px;
+  letter-spacing:0.2px;
   padding-left: 24px;
-
+  margin-left: 4px;
 }
 
   .container{
@@ -56,11 +60,12 @@ body{
       margin: 0;
       padding: 12px;
       list-style-type: none;
+      margin-bottom: 10px;
     }
 
     li{
       line-height: 24px;
-      margin-bottom: 13px;
+      margin-bottom: 16px;
     }
 
     pre{
@@ -72,8 +77,9 @@ body{
     }
 
     code{
-      font-family: 'PT Mono';
+      font-family: $font_mono;
       line-height: 24px;
+      font-weight: 300;
     }
 
     .download{
@@ -82,13 +88,13 @@ body{
       background:#E62849;
       color: white;
       font-size: 22px;
-      font-family: $montserrat;
+      font-family: $font_montserrat;
       font-weight: 800;
       box-shadow: inset 0px 2px 1px #FF4B6A, inset 0px -2px 1px #D80328;
       border-radius: 9px;
       cursor: pointer;
       &:hover{
-        box-shadow: inset 0px 0px 1px #FF4B6A, inset 0px 0px 1px #D80328;
+        //box-shadow: inset 0px 0px 1px #FF4B6A, inset 0px 0px 1px #D80328;
       }
       &:active{
         background: #D91E3E;
@@ -97,7 +103,8 @@ body{
     }
 
     &.install{
-      max-width: 540px;
+      font-weight: 300;
+      font-size: 16px;
     }
 
     &.main{
@@ -135,6 +142,10 @@ body{
         font-weight: 300;
       }
 
+      #radioemoji{
+        margin-left: 8px;
+      }
+
     }
   }
 
@@ -142,6 +153,7 @@ body{
     display: flex;
     justify-content: start;
     font-size: 16px;
+    font-weight: 300;
     align-items: flex-end;
     padding: 46px 50px 40px;
 
@@ -155,7 +167,7 @@ body{
 
     .tellaboutus{
       flex-grow: 1;
-      padding-left: 26px;
+      padding-left: 30px;
       display: flex;
       flex-direction: column;
     }
@@ -183,15 +195,17 @@ body{
 
     .email {
       display: flex;
-      margin-top: 9px;
+      margin-top: 10px;
       a {
-        transition: all 0.1s ease;
+        transition: $transition;
         background: #f0d2d7;
         border-radius: 4px;
         color: #e32c4d;
-        padding: 6px 10px;
+        padding: 0px 10px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 600;
+        height: 32px;
+        line-height: 32px;
 
 
         &:hover {
@@ -201,7 +215,8 @@ body{
       }
     }
     .park path, .park rect{
-      transition: all 0.1s ease;
+      transition: $transition;
+      cursor: pointer;
     }
     .park:hover {
         path, rect:last-child{
