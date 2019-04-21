@@ -1,5 +1,6 @@
 #radioemoji{
   display: flex;
+  flex-wrap: wrap;
   font-size: 16px;
 
   div{
@@ -49,12 +50,31 @@
       display: flex;
     }
 
-    span:not(.icon)+span:not(.icon):before{
+    span:not(.icon)+span:not(:empty):before{
       content: "\00b7";
       padding-right: 4px;
     }
+    @media (hover: hover) {
+      &:hover{
+        color: #E82627;
+        span {
+          filter: grayscale(0);
+        }
+      }
+    }
 
-    &.active, &:hover{
+
+
+    @media (hover: none) {
+      &:hover{
+        color: inherit;
+        span {
+          filter: grayscale(1);
+        }
+      }
+    }
+
+    &.active{
       color: #E82627;
       span {
         filter: grayscale(0);

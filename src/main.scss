@@ -19,11 +19,16 @@ body{
   background: #ededed;
   font-family: $font_system;
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: $wrapper_width;
+  max-width: $wrapper_width;
+  @include until($tablet){
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 .wrapper > *{
@@ -35,6 +40,9 @@ body{
 
 .page-main {
   flex-grow: 1;
+  @include until($tablet){
+    padding: 6px;
+  }
 }
 
 .title {
@@ -46,6 +54,9 @@ body{
   letter-spacing:0.2px;
   padding-left: 24px;
   margin-left: 4px;
+  @include until($tablet){
+    padding-left: 4px;
+  }
 }
 
   .container{
@@ -64,7 +75,6 @@ body{
     }
 
     li{
-      line-height: 24px;
       margin-bottom: 16px;
     }
 
@@ -73,6 +83,9 @@ body{
       padding: 0;
       &:last-child{
         margin-bottom: 0;
+      }
+      @include until($tablet){
+        margin-left: 0;
       }
     }
 
@@ -83,6 +96,7 @@ body{
     }
 
     .download{
+      display: inline-block;
       margin-left: 16px;
       padding: 13px 20px;
       background:#E62849;
@@ -100,11 +114,19 @@ body{
         background: #D91E3E;
         box-shadow: inset 0px 0px 1px #FF4B6A, inset 0px 0px 1px #D80328;
       }
+      @include until($tablet){
+        margin-left: 12px;
+      }
     }
 
     &.install{
-      font-weight: 300;
+      font-weight: 400;
       font-size: 16px;
+      line-height: 26px;
+      @include until($tablet){
+        font-size: 15px;
+        padding: 1em 6px 0 0px;
+      }
     }
 
     &.main{
@@ -113,17 +135,25 @@ body{
       box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.05), 0px 10px 10px rgba(214, 214, 214, 0.5), 0px -1px 5px rgba(0, 0, 0, 0.03);
       background: white;
       padding-bottom: 30px;
+      @include until($tablet){
+        padding: 16px 0px 20px;
+      }
 
       .main_head{
         background: #f3f3f3 url("/img/head.svg") no-repeat 13px center ;
         border-radius: 10px 10px 0 0;
-        color:#919191;
+        color:#c0c0c0;
         font-size: 16px;
         text-align: center;
         height: 43px;
         line-height: 43px;
         margin: -1em;
-        font-weight: 300;
+        //font-weight: 300;
+        @include until($tablet){
+         background:  #f3f3f3;
+          margin: -16px 0px;
+        }
+
       }
 
       .title{
@@ -132,6 +162,10 @@ body{
         letter-spacing: -1px;
         line-height: 86px;
         padding-left: 0;
+        @include until($tablet){
+          font-size: 36px;
+          margin: 16px 12px 0;
+        }
       }
 
       p{
@@ -139,7 +173,9 @@ body{
         max-width: 540px;
         margin: 2px 14px 34px;
         line-height: 30px;
-        font-weight: 300;
+        @include until($tablet){
+          font-size: 18px;
+        }
       }
 
       #radioemoji{
@@ -153,9 +189,13 @@ body{
     display: flex;
     justify-content: start;
     font-size: 16px;
-    font-weight: 300;
     align-items: flex-end;
     padding: 46px 50px 40px;
+    @include until($tablet) {
+      flex-wrap: wrap;
+      font-size: 15px;
+      padding: 53px 18px 37px;
+    }
 
     >div {
       display: flex;
@@ -163,6 +203,12 @@ body{
     }
     .question{
       display: block;
+
+      @include until($tablet) {
+        display: flex;
+        order: 2;
+        flex-grow: 1;
+      }
     }
 
     .tellaboutus{
@@ -170,6 +216,12 @@ body{
       padding-left: 30px;
       display: flex;
       flex-direction: column;
+      @include until($tablet) {
+        padding-left: 0px;
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 16px;
+      }
     }
 
     .likely{
@@ -197,6 +249,7 @@ body{
       display: flex;
       margin-top: 10px;
       a {
+
         transition: $transition;
         background: #f0d2d7;
         border-radius: 4px;
@@ -214,16 +267,30 @@ body{
         }
       }
     }
-    .park path, .park rect{
-      transition: $transition;
-      cursor: pointer;
-    }
-    .park:hover {
-        path, rect:last-child{
+
+    .park {
+      a{
+        display: flex;
+      }
+
+      path, rect {
+        transition: $transition;
+        cursor: pointer;
+      }
+
+      &:hover {
+        path, rect:last-child {
           fill: #0084E4;
         }
-      rect:not(:last-child){
-        fill: #C8EAF1;
+
+        rect:not(:last-child) {
+          fill: #C8EAF1;
+        }
+
+      }
+
+      @include until($tablet) {
+        order: 2;
       }
 
     }

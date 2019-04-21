@@ -21,7 +21,7 @@ function initRadioemoji() {
     let $ = function (selector) {
         return document.querySelector(selector);
     };
-    let links = $('#radioemoji').getElementsByTagName('a');
+    let links = $('#radioemoji').getElementsByTagName('div');
     for (var i = 0; i < links.length; i++) {
         var link = links[i];
         link.onclick = incrementCounter;
@@ -29,30 +29,36 @@ function initRadioemoji() {
 }
 
 function loadCounters( elements_arr) {
-    fetch(url+"init.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "reactions":elements_arr
+    getFpr().then(
+        fingerprint => {
+            fetch(url + "init.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "reactions": elements_arr,
+                    "fingerprint":fingerprint
+                })
+            }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (json) {
+                        if (json.error == null) {
+                            json.reactions.forEach((v) => {
+                                let span = document.createElement("span")
+                                span.innerText = v.counter == 0 ? '' : v.counter
+                                span.classList.add('counter_value')
+                                if (document.getElementsByClassName(v.name)[0])
+                                    document.getElementsByClassName(v.name)[0].appendChild(span);
+                            })
+                            if (json.active) document.querySelector('#radioemoji .'+json.active).classList.add('active')
+                        }
+                    });
+                } else {
+                    console.log('Network request  failed with response ' + response.status + ': ' + response.statusText);
+                }
+            })
         })
-    }).then(function(response) {
-        if(response.ok) {
-            response.json().then(function(json) {
-                if (json.error==null)
-                    json.reactions.forEach((v)=>{
-                        let span=document.createElement("span")
-                        span.innerText=v.counter
-                        span.classList.add('counter_value')
-                        if (document.getElementsByClassName(v.name)[0])
-                            if (v.counter>0) document.getElementsByClassName(v.name)[0].appendChild(span);
-                    })
-            });
-        } else {
-            console.log('Network request  failed with response ' + response.status + ': ' + response.statusText);
-        }
-    })
 }
 
 function incrementCounter() {
@@ -74,8 +80,19 @@ function incrementCounter() {
                 if(response.ok) {
                     response.json().then(function(json) {
                         console.log(json)
-                        if (json.error==null)
-                            target.getElementsByClassName('counter_value')[0].innerText=json.incremented_value;
+                        if (json.error==null){
+                            //target.getElementsByClassName('counter_value')[0].innerText=json.incremented_value;
+                            if (json.decremented_emoji){
+                                document.querySelector('#radioemoji .'+json.decremented_emoji+' span.counter_value ').innerText= (json.decremented_value>0) ? json.decremented_value : '';
+                                document.querySelector('#radioemoji .'+json.decremented_emoji).classList.remove('active')
+                            }
+                            if (json.incremented_emoji){
+                                document.querySelector('#radioemoji .'+json.incremented_emoji+' span.counter_value ').innerText=json.incremented_value;
+                                document.querySelector('#radioemoji .'+json.incremented_emoji).classList.add('active')
+                            }
+
+                        }
+                            //target.getElementsByClassName('counter_value')[0].innerText=json.incremented_value;
                     });
                 } else {
                     console.log('Network request  failed with response ' + response.status + ': ' + response.statusText);
