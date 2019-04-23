@@ -72,10 +72,10 @@ body{
 
     ul{
       margin: 0;
-      padding: 12px;
+      padding: 12px 12px 0;
       list-style-type: none;
       @include until($tablet){
-        padding: 14px;
+        padding: 14px 14px 0;
       }
     }
 
@@ -105,7 +105,7 @@ body{
     .download{
       display: inline-block;
       margin-left: 16px;
-      padding: 13px 20px;
+      padding: 13px 20px 11px 20px;
       background:#E62849;
       color: white;
       font-size: 22px;
@@ -125,7 +125,7 @@ body{
       @include until($tablet){
         margin-left: 15px;
         font-size: 18px;
-        padding: 8px 20px;
+        padding: 8px 20px 6px 20px;
       }
     }
 
@@ -173,6 +173,7 @@ body{
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 4px;
           }
         }
 
