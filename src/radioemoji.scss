@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   font-size: 16px;
+  margin: -1px 0 0 -7px;
 
   div{
     display: flex;
@@ -44,7 +45,6 @@
       display: flex;
     }
 
-
     span:not(.icon){
       padding-right: 4px;
       display: flex;
@@ -62,8 +62,6 @@
         }
       }
     }
-
-
 
     @media (hover: none) {
       &:hover{
